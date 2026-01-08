@@ -6,6 +6,9 @@
     <title>Simple Player</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="https://raw.githubusercontent.com/NOF7351/KST-Tools/refs/heads/main/Resourses/supersimplemediaplayer-logo.png" type="image/x-icon">
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
     <style>
         /* --- CSS: Основа и Фон --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -312,6 +315,16 @@
             title.textContent = 'Самый простой медиаплеер';
             document.querySelector('.subtitle').style.display = 'block';
         }
+    </script>
+    <!-- Yandex.RTB R-A-9296074-2 -->
+    <script>
+        window.yaContextCb.push(() => {
+            Ya.Context.AdvManager.render({
+                "blockId": "R-A-9296074-2",
+                "type": "floorAd",
+                "platform": "desktop"
+            })
+        })
     </script>
 </body>
 </html>
