@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/NOF7351/KST-Tools/refs/heads/main/Resourses/logo.png">
+    <style>
+        .dropdown {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+}
+        a {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.dropdown #menu {
+  display: none;
+}
+
+.dropdown .-hover {
+  color: #000000;
+}
+
+
+
+.dropdown .-arrow::after {
+  content: '\25BC';
+  font-size: 50%;
+  cursor: pointer;
+}
+
+.dropdown .-list {
+  display: none;
+  width: calc(100% + 10px);
+  background: #fff;
+  box-shadow: 0 2px 3px rgba(0,0,0,.35);
+  padding: 5px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 100%;
+  left: -5px;
+  z-index: 10;
+}
+
+.dropdown .-list a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown .-list a:hover {
+  color: #ababab;
+}
+
+.dropdown #menu:checked ~ .-list {
+  display: block;
+}
+
+.dropdown #menu:checked ~ .-arrow::after {
+  content: '\25B2';
+}
+
+    </style>
+</head>
+
+<body>
+    <h1>Выберите:</h1>
+    <div class="dropdown">
+        <input type="checkbox" id="menu">
+        <div class="-hover">
+            <span>Медиаплееры</span>
+            <label for="menu" class="-arrow"></label>
+        </div>
+        <div class="-list">
+            <a href="https://nof7351.github.io/KST-Tools/SuperSimpleMediaPlayer/SuperSimpleMediaPlayer">Супер простой медиаплеер</a>
+            <a href="https://nof7351.github.io/KST-Tools/SuperSimpleMediaPlayer/VerySimpleMediaPlayer">Очень простой медиаплеер</a>
+        </div>
+    </div>
+    <p></p>
+    <a href="#">Скоро</a>
+    <p> </p>
+    <a href="#">Скоро...</a>
+    <p> </p>
+    
+</body>
+</html>
