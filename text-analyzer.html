@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализатор Текста</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: #eef2f3;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .stat-val {
+            display: block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>📝 Анализатор Текста</h2>
+        <textarea id="inputText" placeholder="Вставьте или начните печатать текст здесь..."></textarea>
+        <div class="stats">
+            <div class="stat-box"><span id="words" class="stat-val">0</span><span class="stat-label">Слов</span></div>
+            <div class="stat-box"><span id="chars" class="stat-val">0</span><span class="stat-label">Символов</span>
+            </div>
+            <div class="stat-box"><span id="noSpace" class="stat-val">0</span><span class="stat-label">Без
+                    пробелов</span></div>
+            <div class="stat-box"><span id="readTime" class="stat-val">0 с</span><span class="stat-label">Время
+                    чтения</span></div>
+        </div>
+    </div>
+    <script>
+        const textInput = document.getElementById('inputText');
+        textInput.addEventListener('input', () => {
+            const text = textInput.value;
+            const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            const chars = text.length;
+            const noSpace = text.replace(/\s/g, '').length;
+            const readTime = Math.ceil(words / 3.3); // Примерно 200 слов в минуту -> 3.3 слова в сек
+
+            document.getElementById('words').innerText = words;
+            document.getElementById('chars').innerText = chars;
+            document.getElementById('noSpace').innerText = noSpace;
+            document.getElementById('readTime').innerText = readTime < 60 ? readTime + ' с' : Math.ceil(readTime / 60) + ' мин';
+        });
+    </script>
+</body>
+
+</html>
